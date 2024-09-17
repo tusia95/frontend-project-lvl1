@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "brain games",
+  "scripts": {
+    "test": "test brain-games.js"
+  },
+  "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tusia95/frontend-project-lvl1.git"
+  },
+  "keywords": [
+    "brain",
+    "hexlet"
+  ],
+  "author": "Alina Tabachnikas",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tusia95/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/tusia95/frontend-project-lvl1#readme",
+  "dependencies": {
+    "eslint": "^9.10.0"
+  }
+}
