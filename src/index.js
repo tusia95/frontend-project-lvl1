@@ -14,6 +14,7 @@ export function playGame(userName, playGameRoundFunc) {
     console.log(`Congratulations, ${userName}!`)
   }
 }
+
 export function checkIsAnswerCorrect(userAnswer, expectedAnswer) {
   const isCorrect = userAnswer === String(expectedAnswer);
   if (isCorrect) {
