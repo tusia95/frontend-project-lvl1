@@ -24,6 +24,7 @@ function calculate(firstNum, secondNum, action) {
       break;
     default: throw new Error(`Действие ${action} неизвестно`);
   }
+  return result;
 }
 
 function playCalcGameRound() {
