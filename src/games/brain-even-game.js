@@ -10,6 +10,10 @@ import {
 const minNum = 1;
 const maxNum = 1000;
 
+function checkNumIsEven(num) {
+  return num % 2 === 0;
+}
+
 function playEvenGameRound() {
   const randomNum = getRandomIntFromInterval(minNum, maxNum);
   const userAnswer = getAnswerOnQuestion(randomNum);
@@ -17,12 +21,7 @@ function playEvenGameRound() {
   return checkIsAnswerCorrect(userAnswer, expectedAnswer);
 }
 
-function checkNumIsEven(num) {
-  return num % 2 === 0;
-}
-
 export default function playEvenGame(userName) {
   showGameRules('Answer "yes" if the number is even, otherwise answer "no".');
   playGame(userName, playEvenGameRound);
 }
-

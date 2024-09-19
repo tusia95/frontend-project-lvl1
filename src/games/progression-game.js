@@ -12,6 +12,15 @@ const minStartNum = 1;
 const maxStartNum = 20;
 const progressionLength = 10;
 
+function generateProgression(numberToAdd) {
+  const startNum = getRandomIntFromInterval(minStartNum, maxStartNum);
+  const progressionArr = [startNum];
+  for (let i = 1; i < progressionLength; i += 1) {
+    progressionArr[i] = progressionArr[i - 1] + numberToAdd;
+  }
+  return progressionArr;
+}
+
 function playProgressionGameRound() {
   const numberToAdd = getRandomIntFromInterval(minNum, maxNum);
   const progression = generateProgression(numberToAdd);
@@ -20,15 +29,6 @@ function playProgressionGameRound() {
   progression[indexOfNumberToHide] = '..';
   const userAnswer = getAnswerOnQuestion(progression.join(' '));
   return checkIsAnswerCorrect(userAnswer, expectedNum);
-}
-
-function generateProgression(numberToAdd) {
-  const startNum = getRandomIntFromInterval(minStartNum, maxStartNum);
-  const progressionArr = [startNum];
-  for (let i = 1; i < progressionLength; i += 1) {
-    progressionArr[i] = progressionArr[i - 1] + numberToAdd;
-  }
-  return progressionArr;
 }
 
 export default function playProgressionGame(userName) {

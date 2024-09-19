@@ -9,23 +9,23 @@ import {
 const minNum = 2;
 const maxNum = 100;
 
-function playPrimeGameRound() {
-  const numberToCheck = getRandomIntFromInterval(minNum, maxNum);
-  const userAnswer = getAnswerOnQuestion(numberToCheck);
-  const expectedAnswer = getYesNoAnswer(checkNumberIsPrime(numberToCheck));
-  return checkIsAnswerCorrect(userAnswer, expectedAnswer);
-}
-
 function checkNumberIsPrime(number) {
   if (number < 2) {
     return false;
   }
-  for (let i = 2; i < number; i+=1) {
+  for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
       return false;
     }
   }
   return true;
+}
+
+function playPrimeGameRound() {
+  const numberToCheck = getRandomIntFromInterval(minNum, maxNum);
+  const userAnswer = getAnswerOnQuestion(numberToCheck);
+  const expectedAnswer = getYesNoAnswer(checkNumberIsPrime(numberToCheck));
+  return checkIsAnswerCorrect(userAnswer, expectedAnswer);
 }
 
 export default function playPrimeGame(userName) {

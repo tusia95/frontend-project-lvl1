@@ -21,8 +21,8 @@ export function checkIsAnswerCorrect(userAnswer, expectedAnswer) {
     console.log('Correct!');
     return true;
   }
-    console.log(`"${userAnswer}" is wrong answer. Correct answer was "${expectedAnswer}"`);
-    return false;
+  console.log(`"${userAnswer}" is wrong answer. Correct answer was "${expectedAnswer}"`);
+  return false;
 }
 
 export function getRandomIntFromInterval(min, max) { // min and max included
