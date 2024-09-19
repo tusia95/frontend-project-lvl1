@@ -3,32 +3,33 @@ import {
   checkIsAnswerCorrect,
   getAnswerOnQuestion,
   getRandomIntFromInterval,
-  showGameRules
-} from "../index.js";
+  showGameRules,
+} from '../index.js';
 
 const minNum = 0;
 const maxNum = 100;
 
-
-export default function playGsdGame(userName) {
-  showGameRules('Find the greatest common divisor of given numbers.');
-  playGame(userName, playGcdGameRound);
-}
-
 function playGcdGameRound() {
   const firstNum = getRandomIntFromInterval(minNum, maxNum);
   const secondNum = getRandomIntFromInterval(minNum, maxNum);
-  const userAnswer = getAnswerOnQuestion(firstNum + ' ' + secondNum);
+  const userAnswer = getAnswerOnQuestion(`${firstNum} ${secondNum}`);
   return checkIsAnswerCorrect(userAnswer, calculateGsd(firstNum, secondNum));
 }
 
 function calculateGsd(firstNum, secondNum) {
-  while (firstNum !== 0 & secondNum !== 0) {
-    if (firstNum > secondNum) {
-      firstNum = firstNum % secondNum;
+  let first = firstNum;
+  let second = secondNum;
+  while (first !== 0 && second !== 0) {
+    if (first > second) {
+      first %= second;
     } else {
-      secondNum = secondNum % firstNum;//наоборот
+      second %= first;
     }
   }
-  return firstNum + secondNum;
+  return first + second;
+}
+
+export default function playGsdGame(userName) {
+  showGameRules('Find the greatest common divisor of given numbers.');
+  playGame(userName, playGcdGameRound);
 }
