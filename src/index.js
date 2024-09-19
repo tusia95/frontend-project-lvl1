@@ -37,3 +37,11 @@ export function showGameRules(rules) {
 export function getAnswerOnQuestion(question) {
   return readlineSync.question(`Question: ${question}\nYour answer:`);
 }
+
+export function getYesNoAnswer(answer) {
+  let expectedAnswer = 'no';
+  if (answer) {
+    expectedAnswer = 'yes'
+  };
+  return expectedAnswer;
+}

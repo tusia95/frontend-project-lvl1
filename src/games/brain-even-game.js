@@ -3,7 +3,7 @@ import {
   checkIsAnswerCorrect,
   getAnswerOnQuestion,
   getRandomIntFromInterval,
-  showGameRules
+  showGameRules, getYesNoAnswer
 } from "../index.js";
 
 const minNum = 1;
@@ -17,12 +17,7 @@ export default function playEvenGame(userName) {
 function playEvenGameRound() {
   const randomNum = getRandomIntFromInterval(minNum, maxNum);
   const userAnswer = getAnswerOnQuestion(randomNum)
-  let expectedAnswer;
-  if (checkNumIsEven(randomNum)) {
-    expectedAnswer = 'yes'
-  } else {
-    expectedAnswer = 'no'
-  }
+  const expectedAnswer = getYesNoAnswer(checkNumIsEven(randomNum))
   return checkIsAnswerCorrect(userAnswer, expectedAnswer);
 }
 
