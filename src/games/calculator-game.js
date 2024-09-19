@@ -11,10 +11,18 @@ const maxNum = 20;
 const arithmeticalActions = ['-', '+', '*'];
 
 function calculate(firstNum, secondNum, action) {
+  let result;
   switch (action) {
-    case '+': return firstNum + secondNum;
-    case '-': return firstNum - secondNum;
-    case '*': return firstNum * secondNum;
+    case '+':
+      result = firstNum + secondNum;
+      break;
+    case '-':
+      result = firstNum - secondNum;
+      break;
+    case '*':
+      result = firstNum * secondNum;
+      break;
+    default: throw new Error(`Действие ${action} неизвестно`);
   }
 }
 
