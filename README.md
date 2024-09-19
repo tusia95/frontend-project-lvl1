@@ -6,10 +6,10 @@
 * brain-progression: игра на определение пропущенного числа в арифметической прогрессии
 * brain-prime: игра на определение, является ли число простым
 
-##Проверка кода в codeclimate:
+## Проверка кода в codeclimate:
 <a href="https://codeclimate.com/github/tusia95/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/41d3a00f3699528e9207/maintainability" /></a>
 
-##Аскинемы с демонстрацией игр:
+## Аскинемы с демонстрацией игр:
 [brain-even](https://asciinema.org/a/yFUTNpri0YMe5TaZDWSsJSJqu)
 
 [brain-calc](https://asciinema.org/a/YwKO8VEsfPccOJ3xLXPIkzY7j)
