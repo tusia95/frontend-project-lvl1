@@ -20,7 +20,7 @@ function playCalcGameRound() {
   const secondNum = getRandomIntFromInterval(minNum, maxNum);
   const actionIndex = getRandomIntFromInterval(0, arithmeticalActions.length - 1);
   const action = arithmeticalActions[actionIndex];
-  const strToCalc = firstNum + action + secondNum
+  const strToCalc = firstNum +' '+ action +' ' + secondNum
   const userAnswer = getAnswerOnQuestion(strToCalc);
   return checkIsAnswerCorrect(userAnswer, calculate(strToCalc));
 }
