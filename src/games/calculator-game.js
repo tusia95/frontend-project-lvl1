@@ -10,8 +10,12 @@ const minNum = 0;
 const maxNum = 20;
 const arithmeticalActions = ['-', '+', '*'];
 
-function calculate(stringToCalc) {
-  return eval(stringToCalc);
+function calculate(firstNum, secondNum, action) {
+  switch (action) {
+    case '+': return firstNum + secondNum;
+    case '-': return firstNum - secondNum;
+    case '*': return firstNum * secondNum;
+  }
 }
 
 function playCalcGameRound() {
@@ -21,7 +25,7 @@ function playCalcGameRound() {
   const action = arithmeticalActions[actionIndex];
   const strToCalc = `${firstNum} ${action} ${secondNum}`;
   const userAnswer = getAnswerOnQuestion(strToCalc);
-  return checkIsAnswerCorrect(userAnswer, calculate(strToCalc));
+  return checkIsAnswerCorrect(userAnswer, calculate(firstNum, secondNum, action));
 }
 
 export default function playCalcGame(userName) {
