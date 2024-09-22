@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import sayHelloWithName from '../src/cli.js';
-import playGsdGame from '../src/games/gcd-game.js';
+import playGsdGame from '../src/games/gcd.js';
 
-const name = sayHelloWithName();
-playGsdGame(name);
+playGsdGame();

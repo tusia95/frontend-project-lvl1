@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import sayHelloWithName from '../src/cli.js';
-import playCalcGame from '../src/games/calculator-game.js';
+import playCalcGame from '../src/games/calculator.js';
 
-const name = sayHelloWithName();
-playCalcGame(name);
+playCalcGame();
