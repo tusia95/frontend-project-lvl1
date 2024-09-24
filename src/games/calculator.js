@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import { playGame } from '../index.js';
 import getRandomNumber from '../utils.js';
 
@@ -20,14 +19,12 @@ function playCalcGameRound() {
   const firstNum = getRandomNumber(0, 20);
   const secondNum = getRandomNumber(0, 20);
   const operatorIndex = getRandomNumber(0, arithmeticalOperators.length - 1);
-  console.log(operatorIndex);
   const operator = arithmeticalOperators[operatorIndex];
   const question = `${firstNum} ${operator} ${secondNum}`;
-  const userAnswer = readlineSync.question(`Question: ${question}\nYour answer:`);
-  return { userAnswer, expectedAnswer: calculate(firstNum, secondNum, operator) };
+  return { question, expectedAnswer: String(calculate(firstNum, secondNum, operator)) };
 }
 
 export default function playCalcGame() {
-  const rules = 'What is the result of the expression?';
-  playGame(playCalcGameRound, rules);
+  const gameDescription = 'What is the result of the expression?';
+  playGame(playCalcGameRound, gameDescription);
 }

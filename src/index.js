@@ -1,36 +1,35 @@
 import readlineSync from 'readline-sync';
 
-const gameForWinCount = 3;
+const roundsCount = 3;
+
 export function isAnswerCorrect(userAnswer, expectedAnswer) {
-  const isCorrect = userAnswer === String(expectedAnswer);
+  const isCorrect = userAnswer === expectedAnswer;
   if (isCorrect) {
     console.log('Correct!');
-    return true;
+  } else {
+    console.log(`"${userAnswer}" is wrong answer. Correct answer was "${expectedAnswer}"`);
   }
-  console.log(`"${userAnswer}" is wrong answer. Correct answer was "${expectedAnswer}"`);
-  return false;
+  return isCorrect;
 }
 
-export function playGame(playGameRoundFunc, rules) {
+export function playGame(playGameRoundFunc, description) {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log(rules);
-  for (let i = 1; i <= gameForWinCount; i += 1) {
-    const { userAnswer, expectedAnswer } = playGameRoundFunc();
-    if (!isAnswerCorrect(userAnswer, expectedAnswer)) {
+  console.log(description);
+  for (let i = 1; i <= roundsCount; i += 1) {
+    const { question, expectedAnswer } = playGameRoundFunc();
+    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer:`);
+    if (userAnswer === expectedAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`"${userAnswer}" is wrong answer. Correct answer was "${expectedAnswer}"`);
       console.log(`Let's try again, ${userName}!`);
-      break;
-    }
-    if (i === gameForWinCount) {
-      console.log(`Congratulations, ${userName}!`);
+      return;
     }
   }
+  console.log(`Congratulations, ${userName}!`);
 }
 
 export function getYesNoAnswer(answer) {
-  let expectedAnswer = 'no';
-  if (answer) {
-    expectedAnswer = 'yes';
-  }
-  return expectedAnswer;
+  return answer === true ? 'yes' : 'no';
 }

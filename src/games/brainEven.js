@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import {
   playGame,
   getYesNoAnswer,
@@ -11,12 +10,11 @@ function isEven(num) {
 
 function playEvenGameRound() {
   const randomNum = getRandomNumber(1, 1000);
-  const userAnswer = readlineSync.question(`Question: ${randomNum}\nYour answer:`);
   const expectedAnswer = getYesNoAnswer(isEven(randomNum));
-  return { userAnswer, expectedAnswer };
+  return { question: randomNum, expectedAnswer };
 }
 
 export default function playEvenGame() {
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  playGame(playEvenGameRound, rules);
+  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+  playGame(playEvenGameRound, gameDescription);
 }

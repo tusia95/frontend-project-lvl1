@@ -1,12 +1,8 @@
-import readlineSync from 'readline-sync';
 import {
   getYesNoAnswer,
   playGame,
 } from '../index.js';
 import getRandomNumber from '../utils.js';
-
-const minNum = 2;
-const maxNum = 100;
 
 function isPrime(number) {
   if (number < 2) {
@@ -21,13 +17,12 @@ function isPrime(number) {
 }
 
 function playPrimeGameRound() {
-  const numberToCheck = getRandomNumber(minNum, maxNum);
-  const userAnswer = readlineSync.question(`Question: ${numberToCheck}\nYour answer:`);
+  const numberToCheck = getRandomNumber(0, 100);
   const expectedAnswer = getYesNoAnswer(isPrime(numberToCheck));
-  return { userAnswer, expectedAnswer };
+  return { question: numberToCheck, expectedAnswer };
 }
 
 export default function playPrimeGame() {
-  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  playGame(playPrimeGameRound, rules);
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  playGame(playPrimeGameRound, gameDescription);
 }
