@@ -1,10 +1,7 @@
-import {
-  getYesNoAnswer,
-  playGame,
-} from '../index.js';
+import playGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
-function isPrime(number) {
+const isPrime = (number) => {
   if (number < 2) {
     return false;
   }
@@ -14,13 +11,13 @@ function isPrime(number) {
     }
   }
   return true;
-}
+};
 
-function playPrimeGameRound() {
+const playPrimeGameRound = () => {
   const numberToCheck = getRandomNumber(0, 100);
-  const expectedAnswer = getYesNoAnswer(isPrime(numberToCheck));
+  const expectedAnswer = isPrime(numberToCheck) ? 'yes' : 'no';
   return { question: numberToCheck, expectedAnswer };
-}
+};
 
 export default function playPrimeGame() {
   const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
